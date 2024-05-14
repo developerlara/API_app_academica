@@ -46,7 +46,7 @@ exports.obtener = async (req, res) => {
 
 exports.eliminar = async (req, res) => {
     try {
-        let estudiante = await Estudiante.findById(req.params.id);
+        let estudiante = await Usuario.findById(req.params.id);
 
         if (!estudiante) {
             res.status(404).json({ msg: 'No existe el estudiante' }); // Código 404: Not Found
