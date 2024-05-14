@@ -7,7 +7,12 @@ exports.agregar = async (req, res) => {
         // Guardamos nuestro estudiante
         estudiante = new Usuario(req.body);
         await estudiante.save();
-        res.status(201).json(estudiante); // Código 201: Created
+        let obj = {}
+        obj.codigo = "200"
+        obj.mensaje = "Se insertó correctamente"
+        obj.data = estudiante
+        res.status(200).json(obj);
+        //res.status(201).json(estudiante); // Código 201: Created
     } catch (error) {
         console.log(error);
         res.status(500).send('Error al guardar usuario'); // Código 500: Internal Server Error
